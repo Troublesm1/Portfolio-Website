@@ -12,6 +12,26 @@ function PageTransitions(){
         this.className += ' active-btn';
         })
     }
+
+    // SECTIONS ACTIVE CLASS
+    allSections.addEventListener('click', (e) => {
+        const id = e.target.dataset.id;
+        if(id){
+            //REMOVE SELECTED FROM THE OTHER BUTTONS
+            sectBtns.forEach((btn) => {
+                btn.classList.remove('active');
+            })
+            e.target.classList.add('active')
+
+            //HIDE OTHER SECTIONS
+            sections.forEach((section) =>{
+                section.classList.remove('active')
+            })
+
+            const element = document.getElementById(id);
+            element.classList.add('active');
+        }
+    })
 }
 
 PageTransitions();
